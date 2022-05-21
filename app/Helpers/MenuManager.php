@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class MenuHelper
+class MenuManager
 {
     public static function all()
     {

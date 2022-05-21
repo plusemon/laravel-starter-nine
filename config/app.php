@@ -210,7 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => Example\ExampleClass::class,
-        'Menu' => App\Helpers\MenuHelper::class
+        'Menu' => App\Helpers\MenuManager::class
     ])->toArray(),
 
 ];
