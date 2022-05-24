@@ -6,23 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
 </head>
 
 <body>
 
-    <form action="contact" method="POST"
-          style="display: flex; border: 1px solid gray; padding:20px; flex-direction: column; width: 50%; gap: 10px; margin:auto;">
-        <h1 style="margin: 5px; text-align: center">Contact with us</h1>
-        <input type="text" style="padding: 5px" name="name" placeholder="enter your name">
-        <input type="email" style="padding: 5px" name="email" placeholder="enter your email">
-        <textarea name="message" cols="30" rows="5"></textarea>
-        <button type="submit" style="padding: 5px; font-size: 16pt">Send</button>
+    <form action="contact" method="POST" class="d-flex flex-column m-auto mt-3 w-50 gap-2 border p-3">
+        <h1 class="text-center">Contact with us</h1>
+        <input type="text" class="form-control" name="name" placeholder="enter your name">
+        <input type="email" class="form-control" name="email" placeholder="enter your email">
+        <textarea name="message" cols="30" rows="5" class="form-control"></textarea>
+        <button type="submit" class="btn btn-primary">Send</button>
     </form>
     <br>
 
-    <div style="width: 70%; margin: auto; text-align: center">
-        <h1>Contact Histories</h1>
-        <table border="1" style="margin: auto">
+    <div class="d-flex flex-column m-auto mb-5 w-75 gap-2">
+        <h5 class="m-0 text-center">Contact Histories</h5>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Time</th>
@@ -46,6 +46,7 @@
         </table>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
