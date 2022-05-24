@@ -14,8 +14,9 @@ class ContactServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/routes/contact.php');
         $this->loadViewsFrom(__DIR__ . "/views", 'Contact');
-        $this->mergeConfigFrom(__DIR__."/config/contact.php",'to');
+        $this->loadMigrationsFrom(__DIR__ . "/database/migrations");
+        $this->mergeConfigFrom(__DIR__ . "/config/contact.php", 'contact');
     }
 }
