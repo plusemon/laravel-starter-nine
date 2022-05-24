@@ -12,10 +12,10 @@
 <body>
 
     <form action="contact" method="POST" class="d-flex flex-column m-auto mt-3 w-50 gap-2 border p-3">
-        <h1 class="text-center">Contact with us</h1>
-        <input type="text" class="form-control" name="name" placeholder="enter your name">
-        <input type="email" class="form-control" name="email" placeholder="enter your email">
-        <textarea name="message" cols="30" rows="5" class="form-control"></textarea>
+        <h2 class="text-center">Contact with us</h2>
+        <input required type="text" class="form-control" name="name" placeholder="enter your name">
+        <input required type="email" class="form-control" name="email" placeholder="enter your email">
+        <textarea required name="message" cols="30" rows="5" class="form-control"></textarea>
         <button type="submit" class="btn btn-primary">Send</button>
     </form>
     <br>

@@ -19,6 +19,11 @@ class ContactController extends Controller
 
     public function send(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string'],
+            'name' => ['required', 'email'],
+            'email' => ['required'],
+        ]);
 
         $save =
             MailHistory::query()->create([
