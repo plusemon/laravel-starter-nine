@@ -26,9 +26,9 @@
             <thead>
                 <tr>
                     <th>Time</th>
+                    <th>From</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>From</th>
                     <th>Message</th>
                 </tr>
             </thead>
@@ -36,9 +36,9 @@
                 @foreach ($histories as $history)
                     <tr>
                         <td>{{ $history->created_at }}</td>
+                        <td>{{ $history->from }}</td>
                         <td>{{ $history->name }}</td>
                         <td>{{ $history->to }}</td>
-                        <td>{{ $history->from }}</td>
                         <td>{{ $history->message }}</td>
                     </tr>
                 @endforeach
