@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
@@ -10,6 +13,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "plusemon/contact": "^1.0",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
@@ -31,7 +35,6 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/",
-            "Plusemon\\Contact\\": "packages/contact/src"
         }
     },
     "scripts": {

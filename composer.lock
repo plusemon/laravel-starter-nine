@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ace4901499124794231c4d35c83f2a0",
+    "content-hash": "f8d4e533d1f22f506a4b8a28bd4fc4f9",
     "packages": [
         {
             "name": "brick/math",
@@ -2072,6 +2072,43 @@
                 }
             ],
             "time": "2021-12-04T23:24:31+00:00"
+        },
+        {
+            "name": "plusemon/contact",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/plusemon/laravel-contact.git",
+                "reference": "2d8fc19ade2fb0c98e0ef1866c27198b5bddb184"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/plusemon/laravel-contact/zipball/2d8fc19ade2fb0c98e0ef1866c27198b5bddb184",
+                "reference": "2d8fc19ade2fb0c98e0ef1866c27198b5bddb184",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Plusemon\\Contact\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "emon khan",
+                    "email": "bdemon00@gmail.com"
+                }
+            ],
+            "description": "This is example laravel contact sending package.",
+            "support": {
+                "issues": "https://github.com/plusemon/laravel-contact/issues",
+                "source": "https://github.com/plusemon/laravel-contact/tree/v1.0.0"
+            },
+            "time": "2022-05-24T10:03:56+00:00"
         },
         {
             "name": "psr/container",
