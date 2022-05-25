@@ -29,7 +29,7 @@
     <link href="{{ asset('assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css') }}" rel="stylesheet" />
 
-    <title>Snacked - Bootstrap 5 Admin Template</title>
+    <title>{{ $title ?? 'Admin Panel' }}</title>
 </head>
 
 <body>
@@ -38,11 +38,11 @@
     <!--start wrapper-->
     <div class="wrapper">
         <!--start top header-->
-        @include('layouts.dashboard.topbar')
+        @include('layouts.admin.topbar')
         <!--end top header-->
 
         <!--start sidebar -->
-        @include('layouts.dashboard.sidebar')
+        @include('layouts.admin.sidebar')
         <!--end sidebar -->
 
         <!--start content-->

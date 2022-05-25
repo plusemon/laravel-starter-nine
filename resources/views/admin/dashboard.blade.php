@@ -1,4 +1,8 @@
-@extends('layouts.dashboard.master')
+@php
+$meta['title'] = 'Admin Dashboard';
+@endphp
+
+@extends('layouts.admin.main', $meta)
 
 @section('main')
     <main class="page-content">

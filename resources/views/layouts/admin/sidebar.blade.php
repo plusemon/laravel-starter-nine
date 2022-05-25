@@ -25,7 +25,7 @@
                          <ul>
                              @foreach ($menu['subs'] as $sub)
                                  <li>
-                                     <a class="{!! isset($sub['subs']) ? 'has-arrow' : '' !!}" href="javascript:;">{!! $sub['icon'] ?? '<i class="bx bx-circle"></i>' !!}
+                                     <a class="{!! isset($sub['subs']) ? 'has-arrow' : '' !!}" href="{!! $sub['url'] ?? 'javascript:;' !!}">{!! $sub['icon'] ?? '<i class="bx bx-circle"></i>' !!}
                                          {{ $sub['title'] }}</a>
                                      @if (isset($sub['subs']))
                                          <ul>
