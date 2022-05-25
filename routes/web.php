@@ -18,15 +18,18 @@ Route::get('/', function () {
 })->name('welcome');
 
 // ADMIN PANEL ROUTES
-Route::prefix('admin')->as('admin.')->middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+Route::as('admin.')
+    ->prefix('admin')
+    ->middleware(['auth'])
+    ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
 
-    // Route::resource('roles', \App\Http\Controllers\RoleController::class);
-    // Route::resource('permissions', PemissionController::class);
-    // Route::resource('subscribers', SubscriberController::class);
-});
+        Route::resource('roles', App\Http\Controllers\Admin\RoleController::class)->only(['index','store']);
+        Route::resource('permissions', App\Http\Controllers\Admin\PermissionController::class);
+        Route::resource('subscribers', App\Http\Controllers\Admin\SubscriberController::class);
+    });
 
 
 require __DIR__ . '/auth.php';

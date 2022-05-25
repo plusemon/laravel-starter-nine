@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <title>{{ $title ?? 'Admin Panel' }}</title>
+
 
     <!--plugins-->
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
@@ -29,7 +31,8 @@
     <link href="{{ asset('assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css') }}" rel="stylesheet" />
 
-    <title>{{ $title ?? 'Admin Panel' }}</title>
+
+    @stack('css')
 </head>
 
 <body>
@@ -131,7 +134,17 @@
 
     <!-- Bootstrap bundle JS -->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!--plugins-->
+    <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
+
     @stack('js')
+
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
 </body>
 
