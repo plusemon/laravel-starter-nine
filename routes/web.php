@@ -1,6 +1,5 @@
 <?php
 
-use App\Helpers\MenuHelper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +19,13 @@ Route::get('/', function () {
 
 // ADMIN PANEL ROUTES
 Route::prefix('admin')->as('admin.')->middleware(['auth'])->group(function () {
-
     Route::get('/dashboard', function () {
-
         return view('admin.dashboard');
     })->name('dashboard');
 
+    Route::resource('roles', \App\Http\Controllers\RoleController::class);
+    Route::resource('permissions', PemissionController::class);
+    Route::resource('subscribers', SubscriberController::class);
 });
 
 

@@ -27,11 +27,11 @@ class MenuManager
                 'subs' => [
                     [
                         'title' => 'Roles',
-                        'url' => '/roles',
+                        'url' => route('admin.roles.index'),
                     ],
                     [
                         'title' => 'Permissions',
-                        'url' => '/permissions',
+                        'url' => route('admin.permissions.index'),
                     ],
                 ],
             ],
