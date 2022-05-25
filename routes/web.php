@@ -26,7 +26,7 @@ Route::as('admin.')
             return view('admin.dashboard');
         })->name('dashboard');
 
-        Route::resource('roles', App\Http\Controllers\Admin\RoleController::class)->only(['index','store']);
+        Route::resource('roles', App\Http\Controllers\Admin\RoleController::class)->only(['index','store', 'destroy']);
         Route::resource('permissions', App\Http\Controllers\Admin\PermissionController::class);
         Route::resource('subscribers', App\Http\Controllers\Admin\SubscriberController::class);
     });

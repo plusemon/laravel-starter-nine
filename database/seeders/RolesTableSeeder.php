@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class RolesTableSeeder extends Seeder
 {
@@ -16,23 +17,17 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = Role::create([
-            'name' => 'Admin',
-        ]);
+        DB::transaction(function () {
+            Role::insert([
+                ['name' => 'Super Admin', 'guard_name' => 'web'],
+                ['name' => 'Admin', 'guard_name' => 'web'],
+            ]);
 
-        Permission::create(
-            ['name' => 'create roles'],
-        );
-
-        Permission::create(
-            ['name' => 'edit roles'],
-        );
-
-        Permission::create(
-            ['name' => 'delete roles']
-        );
-
-        $permissions = Permission::all();
-        $role->givePermissionTo($permissions);
+            Permission::insert([
+                ['name' => 'create roles', 'guard_name' => 'web'],
+                ['name' => 'update roles', 'guard_name' => 'web'],
+                ['name' => 'delete roles', 'guard_name' => 'web'],
+            ]);
+        });
     }
 }

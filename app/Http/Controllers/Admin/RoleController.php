@@ -43,7 +43,7 @@ class RoleController extends Controller
         return back();
     }
 
-    public function destory(Role $role)
+    public function destroy(Role $role)
     {
         $role->delete();
         return back();

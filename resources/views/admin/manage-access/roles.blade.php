@@ -29,16 +29,27 @@ $meta['title'] = 'Roles';
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $role->name }}</td>
                                     <td>
-                                        @foreach ($role->permissions as $permission)
-                                            <span class="badge bg-info"> {{ $permission }}</span>,
-                                        @endforeach
+                                        @if ($role->name == 'Super Admin')
+                                            <span class="badge bg-primary"> All Permissions</span>
+                                        @else
+                                            @foreach ($role->permissions as $permission)
+                                                <span class="badge bg-info"> {{ $permission }}</span>,
+                                            @endforeach
+                                        @endif
+
                                     </td>
                                     <td class="text-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
-                                            <button type="button" onclick="return confirm('are you sure want to delete this item?')"
-                                                    class="btn btn-sm btn-outline-danger">Delete</button>
-                                        </div>
+                                        @if ($role->name != 'Super Admin')
+                                            <form action="{{ route('admin.roles.destroy', $role) }}"
+                                                  onsubmit="return confirm('are you sure want to delete this item?')" method="POST">
+                                                @csrf
+                                                @method('delete')
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                                </div>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -62,7 +73,7 @@ $meta['title'] = 'Roles';
                         @csrf
                         <div class="mb-2">
                             <label>Name</label>
-                            <input type="text" name="name" placeholder="Enter name" class="form-control">
+                            <input type="text" name="name" placeholder="Ex: Manager" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
