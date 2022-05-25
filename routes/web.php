@@ -23,9 +23,9 @@ Route::prefix('admin')->as('admin.')->middleware(['auth'])->group(function () {
         return view('admin.dashboard');
     })->name('dashboard');
 
-    Route::resource('roles', \App\Http\Controllers\RoleController::class);
-    Route::resource('permissions', PemissionController::class);
-    Route::resource('subscribers', SubscriberController::class);
+    // Route::resource('roles', \App\Http\Controllers\RoleController::class);
+    // Route::resource('permissions', PemissionController::class);
+    // Route::resource('subscribers', SubscriberController::class);
 });
 
 
