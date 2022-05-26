@@ -15,7 +15,7 @@ class PermissionController extends Controller
     public function index()
     {
         $data['permissions'] = Permission::all();
-        return view('permissions.index',$data);
+        return view('accounts.manage-permissions.permissions', $data);
     }
 
     /**
@@ -25,7 +25,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-         return view('permissions.create');
+        return view('permissions.create');
     }
 
     /**
@@ -45,7 +45,6 @@ class PermissionController extends Controller
         ]);
 
         return redirect(route('permissions.index'));
-        
     }
 
     /**
@@ -81,7 +80,7 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
-         $request->validate([
+        $request->validate([
             //
         ]);
 

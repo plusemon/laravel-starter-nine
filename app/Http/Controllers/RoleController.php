@@ -10,7 +10,7 @@ class RoleController extends Controller
     public function index()
     {
         $data['roles'] = Role::all();
-        return view('accounts.manage-access.roles', $data);
+        return view('accounts.manage-access.manage-roles.roles', $data);
     }
 
     public function store(Request $request)
