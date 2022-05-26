@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -28,6 +29,11 @@ class RolesTableSeeder extends Seeder
                 ['name' => 'update roles', 'guard_name' => 'web'],
                 ['name' => 'delete roles', 'guard_name' => 'web'],
             ]);
+
+            $super_admin = User::first();
+            if ($super_admin) {
+                $super_admin->assignRole(Role::findByName('Super Admin'));
+            }
         });
     }
 }

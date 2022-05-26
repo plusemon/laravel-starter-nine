@@ -17,13 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-// ADMIN PANEL ROUTES
-Route::as('admin.')
-    ->prefix('admin')
+Route::as('accounts.')
+    ->prefix('myaccount')
     ->middleware(['auth'])
     ->group(function () {
+        
         Route::get('/dashboard', function () {
-            return view('admin.dashboard');
+            return view('accounts.dashboard');
         })->name('dashboard');
 
         Route::resource('roles', App\Http\Controllers\Admin\RoleController::class)->only(['index','store', 'destroy']);

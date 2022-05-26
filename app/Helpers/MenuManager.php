@@ -13,7 +13,7 @@ class MenuManager
             [
                 'icon' => '<i class="bx bx-home"></i>',
                 'title' => 'Dashboard',
-                'url' => route('admin.dashboard'),
+                'url' => route('accounts.dashboard'),
             ],
 
 
@@ -27,11 +27,11 @@ class MenuManager
                 'subs' => [
                     [
                         'title' => 'Roles',
-                        'url' => route('admin.roles.index'),
+                        'url' => route('accounts.roles.index'),
                     ],
                     [
                         'title' => 'Permissions',
-                        'url' => route('admin.permissions.index'),
+                        'url' => route('accounts.permissions.index'),
                     ],
                 ],
             ],
@@ -52,7 +52,7 @@ class MenuManager
             [
                 'icon' => '<i class="bx bx-cog"></i>',
                 'title' => 'Settings',
-                'url' => route('admin.dashboard'),
+                'url' => route('accounts.dashboard'),
             ],
         ];
 
