@@ -18,7 +18,6 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::as('accounts.')
-    ->prefix('myaccount')
     ->middleware(['auth'])
     ->group(function () {
         
@@ -26,9 +25,9 @@ Route::as('accounts.')
             return view('accounts.dashboard');
         })->name('dashboard');
 
-        Route::resource('roles', App\Http\Controllers\Admin\RoleController::class)->only(['index','store', 'destroy']);
-        Route::resource('permissions', App\Http\Controllers\Admin\PermissionController::class);
-        Route::resource('subscribers', App\Http\Controllers\Admin\SubscriberController::class);
+        Route::resource('manage/roles', App\Http\Controllers\RoleController::class)->only(['index','store', 'destroy']);
+        Route::resource('manage/permissions', App\Http\Controllers\PermissionController::class);
+        Route::resource('manage/subscribers', App\Http\Controllers\SubscriberController::class);
     });
 
 

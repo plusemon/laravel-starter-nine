@@ -14,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-       return $data['posts'] = Post::all();
-        return view('posts.index',$data);
+        $data['posts'] = Post::all();
+        return view('posts.index', $data);
     }
 
     /**
@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-         return view('posts.create');
+        return view('posts.create');
     }
 
     /**
@@ -45,7 +45,6 @@ class PostController extends Controller
         ]);
 
         return redirect(route('posts.index'));
-        
     }
 
     /**
@@ -81,7 +80,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-         $request->validate([
+        $request->validate([
             //
         ]);
 
