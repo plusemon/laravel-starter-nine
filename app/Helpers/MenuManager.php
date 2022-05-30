@@ -41,11 +41,11 @@ class MenuManager
                 'subs' => [
                     [
                         'title' => 'Create User',
-                        'url' => '/roles',
+                        'url' => route('accounts.users.create'),
                     ],
                     [
                         'title' => 'All Users ',
-                        'url' => '/permissions',
+                        'url' => route('accounts.users.index'),
                     ],
                 ],
             ],

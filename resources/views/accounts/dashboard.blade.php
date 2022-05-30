@@ -1,4 +1,4 @@
-@extends('layouts.accounts.main', ['title' => 'Dashboard'])
+@extends('accounts.layouts.main', ['title' => 'Dashboard'])
 @section('main')
     <main class="page-content">
         <div class="card">

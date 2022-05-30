@@ -17,17 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::as('accounts.')
+Route::prefix('accounts')
+    ->as('accounts.')
     ->middleware(['auth'])
     ->group(function () {
-        
-        Route::get('/dashboard', function () {
-            return view('accounts.dashboard');
-        })->name('dashboard');
 
-        Route::resource('manage/roles', App\Http\Controllers\RoleController::class)->only(['index','store', 'destroy']);
-        Route::resource('manage/permissions', App\Http\Controllers\PermissionController::class);
-        Route::resource('manage/subscribers', App\Http\Controllers\SubscriberController::class);
+        Route::view('dashboard', 'accounts.dashboard')->name('dashboard');
+
+        Route::resource('roles', App\Http\Controllers\RoleController::class)
+                ->only(['index','store', 'destroy']);
+
+        Route::resource('users', App\Http\Controllers\UserController::class)
+                ->only(['index','create']);
+
+        Route::resource('permissions', App\Http\Controllers\PermissionController::class)->names('permissions');
+        Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)->names('subscribers');
     });
 
 

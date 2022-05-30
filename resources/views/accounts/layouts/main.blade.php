@@ -41,11 +41,11 @@
     <!--start wrapper-->
     <div class="wrapper">
         <!--start top header-->
-        @include('layouts.accounts.topbar')
+        @include('accounts.layouts.topbar')
         <!--end top header-->
 
         <!--start sidebar -->
-        @include('layouts.accounts.sidebar')
+        @include('accounts.layouts.sidebar')
         <!--end sidebar -->
 
         <!--start content-->
