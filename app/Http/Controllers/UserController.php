@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $data['users'] = User::all();
-        return view('accounts.manage-users.index',$data);
+        return view('accounts.manage-users.index', $data);
     }
 
     /**
@@ -26,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-         return view('accounts.manage-users.create');
+        return view('accounts.manage-users.create');
     }
 
     /**
@@ -46,7 +47,6 @@ class UserController extends Controller
         ]);
 
         return redirect(route('users.index'));
-        
     }
 
     /**
@@ -82,15 +82,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-         $request->validate([
-            //
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:100'],
+            'last_name' => ['nullable', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'bio' => ['nullable', 'string', 'max:255'],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user->update([
-            //
-        ]);
-
-        return redirect(route('users.index'));
+        $user->update($request->all());
+        return back();
     }
 
     /**

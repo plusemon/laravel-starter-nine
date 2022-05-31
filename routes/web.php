@@ -29,7 +29,7 @@ Route::prefix('accounts')
             ->only(['index', 'store', 'destroy']);
 
         Route::resource('users', App\Http\Controllers\UserController::class)
-            ->only(['index', 'create', 'show']);
+            ->only(['index', 'create', 'show', 'edit', 'update']);
 
         Route::resource('permissions', App\Http\Controllers\PermissionController::class)
             ->only(['index']);
