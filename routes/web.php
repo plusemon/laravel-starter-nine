@@ -31,8 +31,11 @@ Route::prefix('accounts')
         Route::resource('users', App\Http\Controllers\UserController::class)
             ->only(['index', 'create', 'show']);
 
-        Route::resource('permissions', App\Http\Controllers\PermissionController::class)->names('permissions');
-        Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)->names('subscribers');
+        Route::resource('permissions', App\Http\Controllers\PermissionController::class)
+            ->only(['index']);
+
+        Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)
+            ->only(['index', 'store', 'destroy']);
     });
 
 

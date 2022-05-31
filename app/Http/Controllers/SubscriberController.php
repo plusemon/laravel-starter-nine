@@ -16,7 +16,7 @@ class SubscriberController extends Controller
     public function index()
     {
         $data['subscribers'] = Subscriber::all();
-        return view('subscribers.index',$data);
+        return view('accounts.manage-subscribers.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class SubscriberController extends Controller
      */
     public function create()
     {
-         return view('subscribers.create');
+        return view('subscribers.create');
     }
 
     /**
@@ -38,15 +38,12 @@ class SubscriberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            //
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:subscribers,email'],
         ]);
 
-        Subscriber::create([
-            //
-        ]);
-
-        return redirect(route('subscribers.index'));
+        Subscriber::create($request->only(['email']));
         
+        return back();
     }
 
     /**
@@ -82,7 +79,7 @@ class SubscriberController extends Controller
      */
     public function update(Request $request, Subscriber $subscriber)
     {
-         $request->validate([
+        $request->validate([
             //
         ]);
 
