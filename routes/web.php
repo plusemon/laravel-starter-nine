@@ -15,11 +15,6 @@ use Spatie\Permission\Models\Permission;
 */
 
 Route::get('/', function () {
-
-   
-
-    return Permission::all();
-
     return view('welcome');
 })->name('welcome');
 
