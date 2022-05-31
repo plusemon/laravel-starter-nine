@@ -10,6 +10,9 @@
 
          <div class="top-navbar-right ms-auto">
              <ul class="navbar-nav align-items-center">
+                 <li>
+                     <b>{{ now()->format('D, d M, Y h:i: A') }}</b>
+                 </li>
                  <li class="nav-item search-toggle-icon">
                      <a class="nav-link" href="#">
                          <div class="">

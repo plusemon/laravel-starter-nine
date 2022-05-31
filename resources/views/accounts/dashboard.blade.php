@@ -1,14 +1,21 @@
 @extends('accounts.layouts.main', ['title' => 'Dashboard'])
+
+@php
+$user = auth()->user();
+@endphp
+
 @section('main')
     <main class="page-content">
         <div class="card">
             <div class="card-body">
-                <h1>Dashboard contents will goes here</h1>
+                <marquee>
+                    <h4>Welcome, {{ $user->name }}..!</h4>
+                </marquee>
+                
             </div>
         </div>
     </main>
 @endsection
 
 @push('js')
-   
 @endpush

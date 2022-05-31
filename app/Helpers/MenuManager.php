@@ -32,14 +32,14 @@ class MenuManager
                 'url' => route('accounts.users.index'),
             ],
             [
-                'icon' => '<i class="bx bx-user"></i>',
+                'icon' => '<i class="bx bxs-user-detail"></i>',
                 'title' => 'Subscribers',
                 'url' => route('accounts.subscribers.index'),
             ],
             [
                 'icon' => '<i class="bx bx-cog"></i>',
                 'title' => 'Settings',
-                'url' => route('accounts.dashboard'),
+                'url' => route('accounts.settings.general'),
             ],
         ];
     }

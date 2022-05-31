@@ -36,6 +36,12 @@ Route::prefix('accounts')
 
         Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)
             ->only(['index', 'store', 'destroy']);
+
+
+        Route::prefix('settings')->as('settings.')
+            ->group(function () {
+                Route::view('general', 'accounts.settings.general')->name('general');
+            });
     });
 
 
