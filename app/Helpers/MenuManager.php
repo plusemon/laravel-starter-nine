@@ -6,7 +6,7 @@ class MenuManager
 {
     public static function all()
     {
-        $menus = [
+        return [
             [
                 'label' => 'Pages'
             ],
@@ -24,30 +24,17 @@ class MenuManager
             [
                 'icon' => '<i class="bx bx-lock"></i>',
                 'title' => 'Access Control',
-                'subs' => [
-                    [
-                        'title' => 'Roles',
-                        'url' => route('accounts.roles.index'),
-                    ],
-                    [
-                        'title' => 'Permissions',
-                        'url' => route('accounts.permissions.index'),
-                    ],
-                ],
+                'url' => route('accounts.roles.index'),
             ],
             [
                 'icon' => '<i class="bx bx-user"></i>',
                 'title' => 'Manage Users',
-                'subs' => [
-                    [
-                        'title' => 'Create User',
-                        'url' => route('accounts.users.create'),
-                    ],
-                    [
-                        'title' => 'All Users ',
-                        'url' => route('accounts.users.index'),
-                    ],
-                ],
+                'url' => route('accounts.users.index'),
+            ],
+            [
+                'icon' => '<i class="bx bx-user"></i>',
+                'title' => 'Subscribers',
+                'url' => route('accounts.subscribers.index'),
             ],
             [
                 'icon' => '<i class="bx bx-cog"></i>',
@@ -55,7 +42,5 @@ class MenuManager
                 'url' => route('accounts.dashboard'),
             ],
         ];
-
-        return $menus;
     }
 }
