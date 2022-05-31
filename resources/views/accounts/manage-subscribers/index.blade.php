@@ -6,6 +6,7 @@ $meta['title'] = 'Manage Subscribers';
 
 @section('main')
     <main class="page-content">
+        @include('components.errors')
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h5>{{ $meta['title'] }}</h5>
