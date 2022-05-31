@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => 'Sign Up'])
+@extends('auth.layouts.main', ['title' => 'Sign Up'])
 
 @section('main')
     <!--start content-->

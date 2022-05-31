@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+   
+
+    return Permission::all();
+
     return view('welcome');
 })->name('welcome');
 
@@ -25,10 +31,10 @@ Route::prefix('accounts')
         Route::view('dashboard', 'accounts.dashboard')->name('dashboard');
 
         Route::resource('roles', App\Http\Controllers\RoleController::class)
-                ->only(['index','store', 'destroy']);
+            ->only(['index', 'store', 'destroy']);
 
         Route::resource('users', App\Http\Controllers\UserController::class)
-                ->only(['index','create']);
+            ->only(['index', 'create']);
 
         Route::resource('permissions', App\Http\Controllers\PermissionController::class)->names('permissions');
         Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)->names('subscribers');

@@ -1,4 +1,4 @@
-@extends('layouts.auth', ['title' => 'Sign In'])
+@extends('auth.layouts.main', ['title' => 'Sign In'])
 
 @section('main')
     <!--start content-->
@@ -67,8 +67,7 @@
                                             </div>
                                         </div>
                                         <div class="col-12 text-center">
-                                            <p class="mb-0">Don't have an account yet? <a
-                                                   href="/">Sign up here</a></p>
+                                            <p class="mb-0">Don't have an account yet? <a href="/">Sign up here</a></p>
                                         </div>
                                     </div>
                                 </form>
