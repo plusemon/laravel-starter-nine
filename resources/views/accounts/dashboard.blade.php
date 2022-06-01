@@ -11,7 +11,7 @@ $user = auth()->user();
                 <marquee>
                     <h4>Welcome, {{ $user->name }}..!</h4>
                 </marquee>
-                
+
             </div>
         </div>
     </main>

@@ -11,11 +11,12 @@ $(function () {
 
 
 	$(function () {
-		$('#datatable').DataTable({
+		$('.datatable').DataTable({
 			lengthChange: true,
 			buttons: ['copy', 'excel', 'pdf', 'print']
-		}).buttons().container().appendTo('#datatable_length').addClass('ms-2')
-		$('#datatable_wrapper > .row').addClass('py-2 border-bottom')
+		}).buttons().container().appendTo('.dataTables_length').addClass('ms-2')
+		
+		$('.dataTables_wrapper > .row').addClass('py-2 border-bottom')
 	})
 
 
@@ -121,10 +122,7 @@ $(function () {
 		$("html").addClass("color-header headercolor8"), $("html").removeClass("headercolor1 headercolor2 headercolor4 headercolor5 headercolor6 headercolor7 headercolor3")
 	})
 
-
 	new PerfectScrollbar(".header-message-list")
 	new PerfectScrollbar(".header-notifications-list")
-
-
 
 })

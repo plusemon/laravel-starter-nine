@@ -1,8 +1,10 @@
+@extends('accounts.layouts.main', $meta)
+
 @php
 $meta['title'] = 'Manage Subscribers';
+$user = Auth::user();
 @endphp
 
-@extends('accounts.layouts.main', $meta)
 
 @section('main')
     <main class="page-content">
@@ -14,7 +16,7 @@ $meta['title'] = 'Manage Subscribers';
                             <img src="https://via.placeholder.com/110X110" width="45" height="45" class="rounded-circle" alt="">
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <p class="mb-0">Rachel Zane</p>
+                            <p class="mb-0">{{ $user->name }}</p>
                         </div>
                         <div class="dropdown">
                             <div class="cursor-pointer font-24 dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown"><i
@@ -23,7 +25,6 @@ $meta['title'] = 'Manage Subscribers';
                             <div class="dropdown-menu dropdown-menu-end"> <a class="dropdown-item" href="javascript:;">Settings</a>
                                 <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Help &amp;
                                     Feedback</a>
-                                <a class="dropdown-item" href="javascript:;">Enable Split View Mode</a>
                                 <a class="dropdown-item" href="javascript:;">Keyboard Shortcuts</a>
                                 <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Sign Out</a>
                             </div>
@@ -35,69 +36,13 @@ $meta['title'] = 'Manage Subscribers';
                         <input type="text" class="form-control" placeholder="People, groups, &amp; messages"> <span
                               class="input-group-text bg-transparent"><i class="bx bx-dialpad"></i></span>
                     </div>
-                    <div class="chat-tab-menu mt-3">
-                        <ul class="nav nav-pills nav-justified">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="pill" href="javascript:;">
-                                    <div class="font-24"><i class="bx bx-conversation"></i>
-                                    </div>
-                                    <div><small>Chats</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="javascript:;">
-                                    <div class="font-24"><i class="bx bx-phone"></i>
-                                    </div>
-                                    <div><small>Calls</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="javascript:;">
-                                    <div class="font-24"><i class="bx bxs-contact"></i>
-                                    </div>
-                                    <div><small>Contacts</small>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="javascript:;">
-                                    <div class="font-24"><i class="bx bx-bell"></i>
-                                    </div>
-                                    <div><small>Notifications</small>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
                 <div class="chat-sidebar-content">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-Chats">
                             <div class="p-3">
-                                <div class="meeting-button d-flex justify-content-between">
-                                    <div class="dropdown"> <a href="#"
-                                           class="btn btn-white btn-sm radius-30 dropdown-toggle dropdown-toggle-nocaret"
-                                           data-bs-toggle="dropdown"><i class="bx bx-video me-2"></i>Meet Now<i
-                                               class="bx bxs-chevron-down ms-2"></i></a>
-                                        <div class="dropdown-menu"> <a class="dropdown-item" href="#">Host a meeting</a>
-                                            <a class="dropdown-item" href="#">Join a meeting</a>
-                                        </div>
-                                    </div>
-                                    <div class="dropdown"> <a href="#"
-                                           class="btn btn-white btn-sm radius-30 dropdown-toggle dropdown-toggle-nocaret"
-                                           data-bs-toggle="dropdown" data-display="static"><i class="bx bxs-edit me-2"></i>New Chat<i
-                                               class="bx bxs-chevron-down ms-2"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="#">New Group
-                                                Chat</a>
-                                            <a class="dropdown-item" href="#">New Moderated Group</a>
-                                            <a class="dropdown-item" href="#">New Chat</a>
-                                            <a class="dropdown-item" href="#">New Private Conversation</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="dropdown mt-3"> <a href="#"
+                                <div class="dropdown"> <a href="#"
                                        class="text-uppercase text-secondary dropdown-toggle dropdown-toggle-nocaret"
                                        data-bs-toggle="dropdown">Recent Chats <i class="bx bxs-chevron-down"></i></a>
                                     <div class="dropdown-menu"> <a class="dropdown-item" href="#">Recent Chats</a>
@@ -110,19 +55,7 @@ $meta['title'] = 'Manage Subscribers';
                             </div>
                             <div class="chat-list ps ps--active-y">
                                 <div class="list-group list-group-flush">
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="https://via.placeholder.com/110X110" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Louis Litt</h6>
-                                                <p class="mb-0 chat-msg">You just got LITT up, Mike.</p>
-                                            </div>
-                                            <div class="chat-time">9:51 AM</div>
-                                        </div>
-                                    </a>
+
                                     <a href="javascript:;" class="list-group-item active">
                                         <div class="d-flex">
                                             <div class="chat-user-online">
@@ -143,90 +76,26 @@ $meta['title'] = 'Manage Subscribers';
                                                      class="rounded-circle" alt="">
                                             </div>
                                             <div class="flex-grow-1 ms-2">
+                                                <h6 class="mb-0 chat-title">Louis Litt</h6>
+                                                <p class="mb-0 chat-msg">You just got LITT up, Mike.</p>
+                                            </div>
+                                            <div class="chat-time">9:51 AM</div>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:;" class="list-group-item">
+                                        <div class="d-flex">
+                                            <div class="chat-user-online">
+                                                <img src="https://via.placeholder.com/110X110" width="42" height="42"
+                                                     class="rounded-circle" alt="">
+                                            </div>
+                                            <div class="flex-grow-1 ms-2">
                                                 <h6 class="mb-0 chat-title">Rachel Zane</h6>
                                                 <p class="mb-0 chat-msg">I was thinking that we could...</p>
                                             </div>
                                             <div class="chat-time">Wed</div>
                                         </div>
                                     </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="https://via.placeholder.com/110X110" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Donna Paulsen</h6>
-                                                <p class="mb-0 chat-msg">Mike, I know everything!</p>
-                                            </div>
-                                            <div class="chat-time">Tue</div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="https://via.placeholder.com/110X110" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Jessica Pearson</h6>
-                                                <p class="mb-0 chat-msg">Have you finished the draft...</p>
-                                            </div>
-                                            <div class="chat-time">9/3/2020</div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="assets/images/avatars/avatar-7.png" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Harold Gunderson</h6>
-                                                <p class="mb-0 chat-msg">Thanks Mike! :)</p>
-                                            </div>
-                                            <div class="chat-time">12/3/2020</div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="assets/images/avatars/avatar-9.png" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Katrina Bennett</h6>
-                                                <p class="mb-0 chat-msg">I've sent you the files for...</p>
-                                            </div>
-                                            <div class="chat-time">16/3/2020</div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="assets/images/avatars/avatar-10.png" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Charles Forstman</h6>
-                                                <p class="mb-0 chat-msg">Mike, this isn't over.</p>
-                                            </div>
-                                            <div class="chat-time">18/3/2020</div>
-                                        </div>
-                                    </a>
-                                    <a href="javascript:;" class="list-group-item">
-                                        <div class="d-flex">
-                                            <div class="chat-user-online">
-                                                <img src="assets/images/avatars/avatar-11.png" width="42" height="42"
-                                                     class="rounded-circle" alt="">
-                                            </div>
-                                            <div class="flex-grow-1 ms-2">
-                                                <h6 class="mb-0 chat-title">Jonathan Sidwell</h6>
-                                                <p class="mb-0 chat-msg">That's bullshit. This deal..</p>
-                                            </div>
-                                            <div class="chat-time">24/3/2020</div>
-                                        </div>
-                                    </a>
+
                                 </div>
                                 <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
                                     <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
@@ -247,12 +116,7 @@ $meta['title'] = 'Manage Subscribers';
                     <div class="list-inline d-sm-flex mb-0 d-none"> <a href="javascript:;"
                            class="list-inline-item d-flex align-items-center text-secondary"><small
                                    class="bx bxs-circle me-1 chart-online"></small>Active Now</a>
-                        <a href="javascript:;" class="list-inline-item d-flex align-items-center text-secondary">|</a>
-                        <a href="javascript:;" class="list-inline-item d-flex align-items-center text-secondary"><i
-                               class="bx bx-images me-1"></i>Gallery</a>
-                        <a href="javascript:;" class="list-inline-item d-flex align-items-center text-secondary">|</a>
-                        <a href="javascript:;" class="list-inline-item d-flex align-items-center text-secondary"><i
-                               class="bx bx-search me-1"></i>Find</a>
+
                     </div>
                 </div>
                 <div class="chat-top-header-menu ms-auto"> <a href="javascript:;"><i class="bx bx-video"></i></a>
@@ -375,12 +239,8 @@ $meta['title'] = 'Manage Subscribers';
                 <div class="flex-grow-1 pe-2">
                     <div class="input-group"> <span class="input-group-text"><i class="bx bx-smile"></i></span>
                         <input type="text" class="form-control" placeholder="Type a message">
+                        <button class="btn btn-sm btn-primary">Send</button>
                     </div>
-                </div>
-                <div class="chat-footer-menu"> <a href="javascript:;"><i class="bx bx-file"></i></a>
-                    <a href="javascript:;"><i class="bx bxs-contact"></i></a>
-                    <a href="javascript:;"><i class="bx bx-microphone"></i></a>
-                    <a href="javascript:;"><i class="bx bx-dots-horizontal-rounded"></i></a>
                 </div>
             </div>
             <!--start chat overlay-->
@@ -389,3 +249,13 @@ $meta['title'] = 'Manage Subscribers';
         </div>
     </main>
 @endsection
+
+@push('js')
+    <script>
+        $(function() {
+            "use strict";
+            new PerfectScrollbar('.chat-list');
+            new PerfectScrollbar('.chat-content');
+        });
+    </script>
+@endpush

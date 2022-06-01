@@ -16,7 +16,7 @@ class MessageController extends Controller
     public function index()
     {
         $data['messages'] = Message::all();
-        return view('messages.index',$data);
+        return view('accounts.manage-messages.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class MessageController extends Controller
      */
     public function create()
     {
-         return view('messages.create');
+        return view('messages.create');
     }
 
     /**
@@ -46,7 +46,6 @@ class MessageController extends Controller
         ]);
 
         return redirect(route('messages.index'));
-        
     }
 
     /**
@@ -82,7 +81,7 @@ class MessageController extends Controller
      */
     public function update(Request $request, Message $message)
     {
-         $request->validate([
+        $request->validate([
             //
         ]);
 

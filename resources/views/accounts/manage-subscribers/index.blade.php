@@ -1,8 +1,8 @@
+@extends('accounts.layouts.main', $meta)
+
 @php
 $meta['title'] = 'Manage Subscribers';
 @endphp
-
-@extends('accounts.layouts.main', $meta)
 
 @section('main')
     <main class="page-content">
@@ -15,7 +15,7 @@ $meta['title'] = 'Manage Subscribers';
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="datatable" class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered datatable">
                         <thead>
                             <tr>
                                 <th>#</th>

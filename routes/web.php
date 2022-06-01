@@ -24,7 +24,8 @@ Route::prefix('accounts')
     ->group(function () {
 
         Route::view('dashboard', 'accounts.dashboard')->name('dashboard');
-        Route::view('messages', 'accounts.manage-messages.index')->name('messages');
+        Route::resource('messages', App\Http\Controllers\MessageController::class)
+            ->only(['index']);
 
         Route::resource('roles', App\Http\Controllers\RoleController::class)
             ->only(['index', 'store', 'destroy']);

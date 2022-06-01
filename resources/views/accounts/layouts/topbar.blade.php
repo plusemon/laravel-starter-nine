@@ -1,5 +1,6 @@
  @php
      $user = auth()->user();
+     $messages = App\Models\Message::all();
  @endphp
 
  <header class="top-header">
@@ -24,7 +25,9 @@
                  <li class="nav-item dropdown dropdown-large">
                      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                          <div class="messages">
-                             <span class="notify-badge">{{ $messages->count() }}</span>
+                             @if ($messages->count())
+                                 <span class="notify-badge">{{ $messages->count() }}</span>
+                             @endif
                              <i class="bi bi-chat-right-fill"></i>
                          </div>
                      </a>
@@ -33,7 +36,7 @@
                              <h5 class="h5 mb-0">Messages</h5>
                          </div>
                          <div class="header-message-list p-2">
-                             @foreach ($messages as $message)
+                             @forelse ($messages as $message)
                                  <a class="dropdown-item" href="#">
                                      <div class="d-flex align-items-center">
                                          <img src="https://via.placeholder.com/110X110" alt="" class="rounded-circle" width="50"
@@ -47,17 +50,19 @@
                                          </div>
                                      </div>
                                  </a>
-                             @endforeach
-
-
+                             @empty
+                                 <div class="text-center text-muted">No Messages Found</div>
+                             @endforelse
                          </div>
                          <div class="p-2">
-                             <div>
-                                 <hr class="dropdown-divider">
-                             </div>
-                             <a class="dropdown-item" href="{{ route('accounts.messages') }}">
-                                 <div class="text-center">View All Messages</div>
-                             </a>
+                             @if ($messages->count())
+                                 <div>
+                                     <hr class="dropdown-divider">
+                                 </div>
+                                 <a class="dropdown-item" href="{{ route('accounts.messages.index') }}">
+                                     <div class="text-center">View All Messages</div>
+                                 </a>
+                             @endif
                          </div>
                      </div>
                  </li>

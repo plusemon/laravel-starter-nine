@@ -1,8 +1,8 @@
+@extends('accounts.layouts.main', $meta)
+
 @php
 $meta['title'] = $user->name . 's profile';
 @endphp
-
-@extends('accounts.layouts.main', $meta)
 
 @section('main')
     <main class="page-content">

@@ -1,4 +1,5 @@
 @extends('accounts.layouts.main', $meta)
+
 @php
 $meta['title'] = 'Edit ' . $user->name . '\'s profile';
 $user = auth()->user();
