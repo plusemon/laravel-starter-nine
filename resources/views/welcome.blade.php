@@ -407,11 +407,16 @@
 </head>
 
 <body class="antialiased">
+     <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}" class="text-sm text-gray-700 dark:text-gray-500 underline">English</a>
+     <a href="{{ request()->fullUrlWithQuery(['lang' => 'ar']) }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Arabic</a>
+
+   
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
-                    <a href="{{ route('accounts.dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                    <a href="{{ route('accounts.dashboard') }}"
+                       class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                 @else
                     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
@@ -424,7 +429,7 @@
         @endif
 
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-            <h1>Welcome to Laravel starter v9</h1>
+            <h1>@lang('Welcome to Laravel starter v9')</h1>
         </div>
     </div>
 </body>
