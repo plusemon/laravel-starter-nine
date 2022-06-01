@@ -8,7 +8,7 @@ class MenuManager
     {
         return [
             [
-                'label' => 'Pages'
+                'label' => 'Menus'
             ],
             [
                 'icon' => '<i class="bx bx-home"></i>',
