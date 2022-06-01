@@ -19,8 +19,7 @@ $meta['title'] = $user->name . 's profile';
                 @endphp --}}
 
                 <div class="text-center mb-5">
-                    <img class="border mb-2" height="200px"
-                         src="{{ $user->urlOf('avater') ?? asset('assets/dashboard/images/no-image.png') }}" alt="">
+                    <img class="border mb-2" height="200px" src="{{ $user->urlOf('avater') }}" alt="">
                     <form class="mt-2" action="{{ route('accounts.users.update', $user) }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
