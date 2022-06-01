@@ -82,6 +82,13 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
+        if ($request->has('change_avater')) {
+            $user->uploadFromRequest('avater')->save();
+            return back();
+        }
+
+
         $request->validate([
             'first_name' => ['required', 'string', 'max:100'],
             'last_name' => ['nullable', 'string', 'max:100'],
