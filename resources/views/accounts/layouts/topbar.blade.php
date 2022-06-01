@@ -56,12 +56,12 @@
                          </div>
                          <div class="p-2">
                              {{-- @if ($messages->count()) --}}
-                                 <div>
-                                     <hr class="dropdown-divider">
-                                 </div>
-                                 <a class="dropdown-item" href="{{ route('accounts.messages.index') }}">
-                                     <div class="text-center">View All Messages</div>
-                                 </a>
+                             <div>
+                                 <hr class="dropdown-divider">
+                             </div>
+                             <a class="dropdown-item" href="{{ route('accounts.messages.index') }}">
+                                 <div class="text-center">View All Messages</div>
+                             </a>
                              {{-- @endif --}}
                          </div>
                      </div>
@@ -232,8 +232,8 @@
                          <li>
                              <a class="dropdown-item" href="#">
                                  <div class="d-flex align-items-center">
-                                     <img src="{{ $user->urlOf('avater') }}" alt="" class="rounded-circle" width="54"
-                                          height="54">
+                                     <img src="{{ $user->urlOf('avater') ?? asset('assets/dashboard/images/no-image.png') }}"
+                                          alt="" class="rounded-circle" width="54" height="54">
                                      <div class="ms-3">
                                          <h6 class="mb-0 dropdown-user-name">{{ $user->name }}</h6>
                                          <small class="mb-0 dropdown-user-designation text-secondary">

@@ -105,7 +105,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        $blog->delete();
+        $blog->deleteWith('image');
         return back();
     }
 }
