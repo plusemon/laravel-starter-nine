@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Models\Permission;
 
@@ -24,19 +25,19 @@ Route::prefix('accounts')
     ->group(function () {
 
         Route::view('dashboard', 'accounts.dashboard')->name('dashboard');
-        Route::resource('messages', App\Http\Controllers\MessageController::class)
+        Route::resource('messages', App\Http\Controllers\Accounts\MessageController::class)
             ->only(['index']);
 
-        Route::resource('roles', App\Http\Controllers\RoleController::class)
+        Route::resource('roles', App\Http\Controllers\Accounts\RoleController::class)
             ->only(['index', 'store', 'destroy']);
 
-        Route::resource('users', App\Http\Controllers\UserController::class)
+        Route::resource('users', App\Http\Controllers\Accounts\UserController::class)
             ->only(['index', 'create', 'show', 'edit', 'update']);
 
-        Route::resource('permissions', App\Http\Controllers\PermissionController::class)
+        Route::resource('permissions', App\Http\Controllers\Accounts\PermissionController::class)
             ->only(['index']);
 
-        Route::resource('subscribers', App\Http\Controllers\SubscriberController::class)
+        Route::resource('subscribers', App\Http\Controllers\Accounts\SubscriberController::class)
             ->only(['index', 'store', 'destroy']);
 
 
@@ -44,7 +45,27 @@ Route::prefix('accounts')
             ->group(function () {
                 Route::view('general', 'accounts.settings.general')->name('general');
             });
+
+
+
+        // DASHBOARD PANEL ROUTES
+
+        Route::resource('blogs', App\Http\Controllers\Accounts\BlogController::class);
     });
+
+
+
+Route::as('system.')->prefix('system')->group(function () {
+    Route::get('clear', function () {
+        Artisan::call('optimize:clear');
+    });
+    Route::get('reset', function () {
+        Artisan::call('db:wipe');
+        Artisan::call('migrate');
+        Artisan::call('db:seed');
+        return redirect('/');
+    });
+});
 
 
 require __DIR__ . '/auth.php';

@@ -15,6 +15,11 @@ class MenuManager
                 'title' => 'Dashboard',
                 'url' => route('accounts.dashboard'),
             ],
+            [
+                'icon' => '<i class="bx bx-book-open"></i>',
+                'title' => 'Blogs',
+                'url' => route('accounts.blogs.index'),
+            ],
 
 
             // multi level menu example

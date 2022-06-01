@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Accounts;
 
-use App\Models\Subscriber;
+use App\Models\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SubscriberController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        $data['subscribers'] = Subscriber::all();
-        return view('accounts.manage-subscribers.index', $data);
+        $data['blogs'] = Blog::all();
+        return view('accounts.blogs.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class SubscriberController extends Controller
      */
     public function create()
     {
-        return view('subscribers.create');
+        return view('accounts.blogs.create');
     }
 
     /**
@@ -38,67 +38,74 @@ class SubscriberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:subscribers,email'],
+            'image' => ['required', 'file', 'image'],
+            'title' => ['required', 'string', 'max:255'],
+            'body' => ['required', 'string'],
         ]);
 
-        Subscriber::create($request->only(['email']));
-        
-        return back();
+        /**
+         * @var \App\Models\Blog $blog
+         */
+        $blog = Blog::create($request->except('image'));
+
+        $blog->uploadFromRequest('image')->save();
+
+        return redirect(route('accounts.blogs.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subscriber  $subscriber
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Subscriber $subscriber)
+    public function show(Blog $blog)
     {
-        $data['subscriber'] = $subscriber;
-        return view('subscribers.show', $data);
+        $data['blog'] = $blog;
+        return view('accounts.blogs.show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Subscriber  $subscriber
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subscriber $subscriber)
+    public function edit(Blog $blog)
     {
-        $data['subscriber'] = $subscriber;
-        return view('subscribers.edit', $data);
+        $data['blog'] = $blog;
+        return view('accounts.blogs.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subscriber  $subscriber
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subscriber $subscriber)
+    public function update(Request $request, Blog $blog)
     {
         $request->validate([
             //
         ]);
 
-        $subscriber->update([
+        $blog->update([
             //
         ]);
 
-        return redirect(route('subscribers.index'));
+        return redirect(route('accounts.blogs.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subscriber  $subscriber
+     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subscriber $subscriber)
+    public function destroy(Blog $blog)
     {
-        $subscriber->delete();
+        $blog->delete();
         return back();
     }
 }

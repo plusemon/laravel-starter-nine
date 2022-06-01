@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Accounts;
 
 use Illuminate\Http\Request;
 use Plusemon\Uploader\Uploader;
 use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {
     public function index()
     {
         $data['roles'] = Role::all();
-        return view('accounts.access-control.roles.index', $data);
+        return view('accounts.roles.index', $data);
     }
 
     public function store(Request $request)

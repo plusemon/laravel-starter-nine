@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Accounts;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $data['users'] = User::all();
-        return view('accounts.manage-users.index', $data);
+        return view('accounts.users.index', $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('accounts.manage-users.create');
+        return view('accounts.users.create');
     }
 
     /**
@@ -58,7 +58,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         $data['user'] = $user;
-        return view('accounts.manage-users.show', $data);
+        return view('accounts.users.show', $data);
     }
 
     /**
@@ -70,7 +70,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $data['user'] = $user;
-        return view('accounts.manage-users.edit', $data);
+        return view('accounts.users.edit', $data);
     }
 
     /**

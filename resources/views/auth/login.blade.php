@@ -14,6 +14,7 @@
                             <div class="card-body p-4 p-sm-5">
                                 <h5 class="card-title">Sign In</h5>
                                 <p class="card-text mb-4">See your growth and get consulting support!</p>
+                                @include('components.errors')
                                 <form action="{{ route('login') }}" method="POST" class="form-body">
                                     @csrf
                                     <div class="row g-3">
