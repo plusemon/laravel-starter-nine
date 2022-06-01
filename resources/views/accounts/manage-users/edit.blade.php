@@ -7,10 +7,12 @@ $user = auth()->user();
 
 @section('main')
     <main class="page-content">
-        <div class="row">
-            <div class="col-12 col-lg-8">
+        <div class="row ">
+            <div class="col-12 col-lg-12">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
+
+                        @include('components.errors')
 
                         <form action="{{ route('accounts.users.update', $user) }}" method="POST">
                             @csrf
@@ -51,6 +53,7 @@ $user = auth()->user();
                                 </div>
                                 <div class="card-body">
                                     <div class="row g-3">
+
                                         <div class="col-12">
                                             <label class="form-label">Address</label>
                                             <input type="text" name="address" class="form-control" value="{{ $user->address }}"
@@ -62,13 +65,23 @@ $user = auth()->user();
                                                    placeholder="London">
                                         </div>
                                         <div class="col-6">
+                                            <label class="form-label">Zip Code</label>
+                                            <input type="text" class="form-control" name="zip_code" value="{{ $user->zip_code }}"
+                                                   placeholder="1000">
+                                        </div>
+                                        <div class="col-6">
                                             <label class="form-label">Country</label>
                                             <input type="text" class="form-control" name="country" value="{{ $user->country }}"
                                                    placeholder="United States">
                                         </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Phone</label>
+                                            <input type="text" name="phone" class="form-control" value="{{ $user->phone }}"
+                                                   placeholder="+88 01******">
+                                        </div>
                                         <div class="col-12">
                                             <label class="form-label">About Me</label>
-                                            <textarea class="form-control" rows="4" cols="4" placeholder="Describe yourself...">{{ $user->bio }}</textarea>
+                                            <textarea name="bio" class="form-control" rows="4" cols="4" placeholder="Describe yourself...">{{ $user->bio }}</textarea>
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-primary px-4">Save Changes</button>
@@ -79,37 +92,6 @@ $user = auth()->user();
                         </form>
 
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4">
-                <div class="card shadow-sm border-0 overflow-hidden">
-                    <div class="card-body">
-                        <div class="profile-avatar text-center">
-                            <img src="https://via.placeholder.com/110X110" class="rounded-circle shadow" width="120" height="120"
-                                 alt="">
-                        </div>
-
-                        <div class="text-center mt-4">
-                            <h4 class="mb-1">{{ $user->name }}</h4>
-                            <p class="mb-0 text-secondary">{{ $user->address }}</p>
-                            <div class="mt-4"></div>
-                            <h6 class="mb-1">HR Manager - Codervent Technology</h6>
-                            <p class="mb-0 text-secondary">University of Information Technology</p>
-                        </div>
-                        <hr>
-                        <div class="text-start">
-                            <h5 class="">About</h5>
-                            <p class="mb-0">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout. The point of using Lorem.
-                            </p>
-                        </div>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent border-top">
-                            Total Orders
-                            <span class="badge bg-primary rounded-pill">95</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>

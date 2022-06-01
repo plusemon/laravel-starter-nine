@@ -39,7 +39,7 @@
                              @forelse ($messages as $message)
                                  <a class="dropdown-item" href="#">
                                      <div class="d-flex align-items-center">
-                                         <img src="https://via.placeholder.com/110X110" alt="" class="rounded-circle" width="50"
+                                         <img src="{{ $user->urlOf('avater') }}" alt="" class="rounded-circle" width="50"
                                               height="50">
                                          <div class="ms-3 flex-grow-1">
                                              <h6 class="mb-0 dropdown-msg-user"> {{ $message->sender_email }} <span
@@ -225,14 +225,14 @@
                  <li class="nav-item dropdown dropdown-user-setting">
                      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                          <div class="user-setting d-flex align-items-center">
-                             <img src="https://via.placeholder.com/110X110" class="user-img" alt="">
+                             <img src="{{ $user->urlOf('avater') }}" class="user-img" alt="">
                          </div>
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end">
                          <li>
                              <a class="dropdown-item" href="#">
                                  <div class="d-flex align-items-center">
-                                     <img src="https://via.placeholder.com/110X110" alt="" class="rounded-circle" width="54"
+                                     <img src="{{ $user->urlOf('avater') }}" alt="" class="rounded-circle" width="54"
                                           height="54">
                                      <div class="ms-3">
                                          <h6 class="mb-0 dropdown-user-name">{{ $user->name }}</h6>
