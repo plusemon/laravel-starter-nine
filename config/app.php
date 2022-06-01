@@ -186,7 +186,6 @@ return [
          * Package Service Providers...
          */
 
-        \Plusemon\Contact\ContactServiceProvider::class,
 
         /*
          * Application Service Providers...

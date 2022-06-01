@@ -55,18 +55,18 @@
                              @endforelse
                          </div>
                          <div class="p-2">
-                             @if ($messages->count())
+                             {{-- @if ($messages->count()) --}}
                                  <div>
                                      <hr class="dropdown-divider">
                                  </div>
                                  <a class="dropdown-item" href="{{ route('accounts.messages.index') }}">
                                      <div class="text-center">View All Messages</div>
                                  </a>
-                             @endif
+                             {{-- @endif --}}
                          </div>
                      </div>
                  </li>
-                 <li class="nav-item dropdown dropdown-large">
+                 {{-- <li class="nav-item dropdown dropdown-large">
                      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                          <div class="notifications">
                              <span class="notify-badge">8</span>
@@ -221,7 +221,7 @@
                              </a>
                          </div>
                      </div>
-                 </li>
+                 </li> --}}
                  <li class="nav-item dropdown dropdown-user-setting">
                      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                          <div class="user-setting d-flex align-items-center">
