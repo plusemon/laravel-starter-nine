@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8d4e533d1f22f506a4b8a28bd4fc4f9",
+    "content-hash": "a27b1ddbae3a4881885ea1743a2f8cf5",
     "packages": [
         {
             "name": "brick/math",
@@ -2074,23 +2074,31 @@
             "time": "2021-12-04T23:24:31+00:00"
         },
         {
-            "name": "plusemon/contact",
-            "version": "v1.0.0",
+            "name": "plusemon/uploader",
+            "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/plusemon/laravel-contact.git",
-                "reference": "2d8fc19ade2fb0c98e0ef1866c27198b5bddb184"
+                "url": "https://github.com/plusemon/uploader.git",
+                "reference": "a2ffd320b5d852303a076869e4d4672097b61bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plusemon/laravel-contact/zipball/2d8fc19ade2fb0c98e0ef1866c27198b5bddb184",
-                "reference": "2d8fc19ade2fb0c98e0ef1866c27198b5bddb184",
+                "url": "https://api.github.com/repos/plusemon/uploader/zipball/a2ffd320b5d852303a076869e4d4672097b61bcb",
+                "reference": "a2ffd320b5d852303a076869e4d4672097b61bcb",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Plusemon\\Uploader\\UploaderServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
-                    "Plusemon\\Contact\\": "src/"
+                    "Plusemon\\Uploader\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2103,12 +2111,12 @@
                     "email": "bdemon00@gmail.com"
                 }
             ],
-            "description": "This is example laravel contact sending package.",
+            "description": "Laravel file upload helper package.",
             "support": {
-                "issues": "https://github.com/plusemon/laravel-contact/issues",
-                "source": "https://github.com/plusemon/laravel-contact/tree/v1.0.0"
+                "issues": "https://github.com/plusemon/uploader/issues",
+                "source": "https://github.com/plusemon/uploader/tree/main"
             },
-            "time": "2022-05-24T10:03:56+00:00"
+            "time": "2022-06-01T04:13:36+00:00"
         },
         {
             "name": "psr/container",
@@ -7924,7 +7932,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "plusemon/uploader": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
