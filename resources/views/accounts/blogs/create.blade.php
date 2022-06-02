@@ -4,6 +4,10 @@
 $meta['title'] = 'Add New Blog';
 @endphp
 
+@push('css')
+    <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/image-uploader/image-uploader.min.css') }}">
+@endpush
+
 @section('main')
     <main class="page-content">
         <div class="card">
@@ -17,7 +21,7 @@ $meta['title'] = 'Add New Blog';
                     @csrf
                     <div class="mb-3">
                         <label for="">Image</label>
-                        <input type="file" name="image" class="form-control-file">
+                        <div class="input-images"></div>
                     </div>
                     <div class="mb-1">
                         <label for="">Title</label>
@@ -33,5 +37,30 @@ $meta['title'] = 'Add New Blog';
                 </form>
             </div>
         </div>
+
     </main>
 @endsection
+
+@push('js')
+    <script type="text/javascript" src="{{ asset('assets/dashboard/plugins/image-uploader/image-uploader.min.js') }}"></script>
+    <script>
+        $('.input-images').imageUploader({
+            maxFiles: 1,
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.0.3/tinymce.min.js"
+            integrity="sha512-DB4Mu+YChAdaLiuKCybPULuNSoFBZ2flD9vURt7PgU/7pUDnwgZEO+M89GjBLvK9v/NaixpswQtQRPSMRQwYIA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist", "anchor", "autolink", "charmap", "code", "fullscreen",
+                "help", "image", "insertdatetime", "link", "lists", "media",
+                "preview", "searchreplace", "table", "visualblocks",
+            ],
+            toolbar: "undo redo | styles | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+    </script>
+@endpush

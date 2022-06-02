@@ -37,8 +37,9 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'image' => ['required', 'file', 'image'],
+            'images' => ['required', 'array'],
             'title' => ['required', 'string', 'max:255'],
             'body' => ['required', 'string'],
         ]);
@@ -46,9 +47,9 @@ class BlogController extends Controller
         /**
          * @var \App\Models\Blog $blog
          */
-        $blog = Blog::create($request->except('image'));
+        $blog = Blog::create($request->except('images'));
 
-        $blog->uploadFromRequest('image')->save();
+        $blog->uploadRequestFiles('images')->saveInto('image');
 
         return redirect(route('accounts.blogs.index'));
     }
