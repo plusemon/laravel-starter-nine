@@ -84,7 +84,7 @@ class UserController extends Controller
     {
 
         if ($request->has('change_avater')) {
-            $user->uploadFromRequest('avater')->save();
+            $user->uploadRequestFile('avater')->saveInto('avater');
             return back();
         }
 
